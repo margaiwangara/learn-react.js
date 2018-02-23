@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+  <title>Learn React.js</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="jumbotron">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/babel">
+    //components,properties,events
+    var Jumbotron = React.createClass({
+      propTypes: {
+        //properties
+        title: React.PropTypes.string.isRequired
+      },
+      getDefaultProps: function(){
+        return {
+          //properties
+          title: false,
+          paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic beatae nam, ea sunt inventore earum quidem magni quisquam rerum, a provident modi dignissimos iste. Laboriosam eius molestias cumque debitis culpa obcaecati quas veniam optio officiis? Temporibus commodi assumenda sed voluptates id voluptas ratione, autem amet quae ipsa! Minima, aliquam! Delectus.",
+          link: "http://seemee.com",
+        }
+      },
+      render: function(){
+        return(
+          <div>
+            <div className="jumbotron">
+              <h1>{this.props.title }</h1>
+              <p>
+                {this.props.paragraph}
+              </p>
+              <a className="btn btn-primary btn-lg" href={this.props.link} role="button">React</a>
+            </div>
+          </div>
+        )
+      }
+    });
+
+    ReactDOM.render(
+      <Jumbotron/>,
+      document.getElementById('jumbotron')
+    );
+  </script>
+</body>
+</html>
